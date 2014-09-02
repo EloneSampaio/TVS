@@ -1,0 +1,58 @@
+
+<div class="span10 " id="content" style="margin-left: 300px;">
+    <!-- validation -->
+    <div class="row-fluid">
+        <!-- block -->
+        <div class="block">
+            <div class="navbar navbar-inner block-header">
+                <div class="muted pull-right">Dados do Cliente</div>
+            </div>
+            <div class="block-content collapse in">
+                <div class="span12">
+                    <!-- BEGIN FORM-->
+                    <form action="<?php print URL; ?>cliente" id="cliente" class="form-horizontal" method="POST">
+                        <fieldset>
+                            <div class="control-group">
+                                <label class="control-label">Primeiro Nome<span class="required">*</span></label>
+                                <div class="controls">
+                                    <input type="text" name="p_nome" data-required="1" class="span6 m-wrap"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label">Ultimo Nome<span class="required">*</span></label>
+                                <div class="controls">
+                                    <input name="u_nome" type="text" class="span6 m-wrap"/>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">Morada<span class="required">*</span></label>
+                                <div class="controls">
+                                    <input name="morada" type="text" class="span6 m-wrap"/>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label class="control-label">Contacto<span class="required">*</span></label>
+                                <div class="controls">
+                                    <input name="telefone" id="telefone"type="tel" class="span6 m-wrap"/>
+
+                                </div>
+                            </div>
+                            <input name="enviar" type="hidden" value="1"/>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="novo">Salvar Dados</button>
+                                <button type="reset" class="btn">Cancelar</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <!-- END FORM-->
+                </div>
+            </div>
+        </div>
+        <!-- /block -->
+    </div>
+    <!-- /validation -->
+
+</div>
+</div>

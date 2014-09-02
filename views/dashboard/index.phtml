@@ -1,0 +1,60 @@
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3" id="sidebar">
+            <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                <li class="active">
+                    <a href="<?php print URL;?>dashboard"><i class="icon-chevron-right"></i> Dashboard</a>
+                </li>
+                <?php if (isset($_layoutParam["admin"])): ?>
+                    <?php for ($i = 0; $i < count($_layoutParam["admin"]); $i++): ?>
+                        <?php (($item && $_layoutParam["admin"][$i]["id"] == $item) ? $item_style = "corrent" : $item_style = ""); ?> 
+
+                        <li><a id="cli" rel="<?php print $_layoutParam["admin"][$i]["id"]; ?>" href="<?php echo $_layoutParam["admin"][$i]["link"]; ?>" ><i class="icon-chevron-right"></i><?php echo $_layoutParam["admin"][$i]["titulo"]; ?></a></li>
+                        <?php
+                    endfor;
+                endif;
+                ?>
+            </ul>
+        </div>
+        <div class="span9" id="content">
+            <div class="row-fluid">
+                <div class="alert alert-success text-center">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4>Seja BemVindo <?php print Session::get('nome');?></h4>
+                    O Seu Login foi feito com sucesso</div>
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="breadcrumb">
+                            <i class="icon-chevron-left hide-sidebar"><a href='#' title="Hide Sidebar" rel='tooltip'>&nbsp;</a></i>
+                            <i class="icon-chevron-right show-sidebar" style="display:none;"><a href='#' title="Show Sidebar" rel='tooltip'>&nbsp;</a></i>
+                            <li>
+                                <a href="<?php print URL?>dashboard">Dashboard</a> <span class="divider">/</span>	
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+
+<div id='pageContent'></div>
+        </div>
+
+ <noscript>Para usar todas funcionalidades ativa o javascript no seu navegador</noscript> 
+
+
+            <?php if (isset($this->erro)): ?>
+                <?php print $this->erro; ?>
+
+            <?php endif; ?>
+
+            <?php if (isset($this->mensagem)): ?>
+                <?php print $this->mensagem; ?>
+            <?php endif; ?>
+
+
+
+            <ul class="pagination">
+                <li><?php if (isset($this->paginacion) && !empty($this->paginacion)) echo $this->paginacion; ?></li>
+            </ul>
+ <?php print $this->footer;?>
