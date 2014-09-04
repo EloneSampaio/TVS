@@ -7,24 +7,31 @@
         </div>
         <div class="block-content collapse in">
             <div class="span12">
-                <div class="table-toolbar">
 
-                    <div class="btn-group pull-right">
-                        <button data-toggle="dropdown" class="btn dropdown-toggle">Opções <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li><a href="<?php print URL; ?>sms/novo">Enviar Para</a></li>
-                            <li><a href="<?php print URL; ?>sms">Enviar Para todos</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <form action="<?php print URL; ?>sms" id="form_sample_1" class="form-horizontal" method="POST">
+                <form action="<?php print URL; ?>sms/novo" id="form_sample_1" class="form-horizontal" method="POST">
                     <fieldset>
+
+                        <div class="control-group">
+                            <label class="control-label" >Telefone</label>
+                            <div class="controls">
+                                <div class="btn-group">
+                                    <select id="example21" multiple="multiple" name="telefone[]">
+                                        <?php foreach ($this->nome as $teste): ?>
+                                            <option value="<?php print $teste['telefone']; ?>"><?php print $teste['nome']; ?></option>  
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <button id="example21-toggle" class="btn btn-primary">Select All</button>
+                                </div>                        </div>
+                        </div>
+
                         <div class="control-group">
                             <label class="control-label" for="textarea2">Mensagem</label>
                             <div class="controls">
                                 <textarea class="input-xlarge textarea" placeholder="Escreva sua mensagem" style="width: 810px; height: 200px" name="mensagem"></textarea>
                             </div>
                         </div>
+
+
                         <input name="enviar" type="hidden" value="1"/>
                         <div class="form-actions">
                             <button type="submit" class="btn btn-primary">Enviar Mensagem</button>

@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-define("URL", "http://localhost:8080/Tvs/");
+define("URL", "http://localhost/Tvs/");
 define("DEFAULT_LAYOUT", "default");
 define("APP_NAME", "Programao Angola");
 define("APP_DESCRICAO", "Trabalhando Para Melhorar O Conceito de Programação em Angola");

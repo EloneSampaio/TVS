@@ -29,6 +29,11 @@ class pagamentoModel extends Model {
 WHERE p.status =  "on" ORDER BY p.id DESC');
     }
 
+    public function listarUltimos() {
+        return $this->db->Selecionar('SELECT * FROM pagamentos c INNER JOIN usuarios p ON c.id_usuario = p.id_usuario 
+ ORDER BY c.id DESC LIMIT 3');
+    }
+
     public function Verificar_mes($mes, $id) {
         $em = $this->db->prepare("SELECT * FROM pagamentos WHERE mes=:mes AND id_cliente=:id_cliente");
 

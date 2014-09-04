@@ -110,7 +110,7 @@ function showUsers(){
 	// we use setTimeout just to show the image loading effect when you have a very fast server
 	// otherwise, you can just do: $('#pageContent').load('read.php', function(){ $('#loaderImage').hide(); });
 	// THIS also hides the loader image
-	setTimeout("$('#pageContent').load('http://localhost:8080/Tvs/dashboard/listarUsuario', function(){ $('#loaderImage').hide(); });", 1000);
+	setTimeout("$('#pageContent').load('http://localhost/Tvs/dashboard/listarUsuario', function(){ $('#loaderImage').hide(); });", 1000);
      
 }
 
@@ -122,7 +122,7 @@ function showCreateUserForm(){
 	// read and show the records after 1 second
 	// we use setTimeout just to show the image loading effect when you have a very fast server
 	// otherwise, you can just do: $('#pageContent').load('read.php');
-	setTimeout("$('#pageContent').load('http://localhost:8080/Tvs/', function(){ $('#loaderImage').hide(); });",1000);
+	setTimeout("$('#pageContent').load('http://localhost/Tvs/', function(){ $('#loaderImage').hide(); });",1000);
 }
 
 
@@ -133,7 +133,7 @@ function open(){
             var id = $(this).attr('rel');
         console.log(id);
 	
-		var link="http://localhost:8080/Tvs/"+id;
+		var link="http://localhost/Tvs/"+id;
 		
 		// show a loader image
 		$('#loaderImage').show();

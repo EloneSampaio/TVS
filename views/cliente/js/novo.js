@@ -53,7 +53,7 @@ function apagar() {
 // get the id
             var id = $(this).attr('rel');
             // trigger the delete file
-            $.post("http://localhost:8080/Tvs/cliente/apagar/", {'id': id})
+            $.post("http://localhost/Tvs/cliente/apagar/", {'id': id})
                     .done(function(data) {
                         alert("cliente apagado");
                         console.log(data);

@@ -15,16 +15,20 @@ class DashboardController extends Controller {
 
     //put your code here
     private $dashboards;
+    private $clientes;
+    private $pagamentos;
 
     public function __construct() {
         parent::__construct();
 
         $this->dashboards = $this->LoadModelo("usuario");
+        $this->clientes = $this->LoadModelo("cliente");
+        $this->pagamentos = $this->LoadModelo("pagamento");
     }
 
     public function index() {
         $this->view->setJs(array("novo"));
-        Session::nivelRestrito(array("usuario","admin"), TRUE);
+        Session::nivelRestrito(array("usuario", "admin"), TRUE);
         $this->view->footer = $this->getFooter('footer', 'index');
         $this->view->t = $this->dashboards->listarUltimos();
         $this->view->titulo = "Pagina de Administracção";
@@ -34,6 +38,9 @@ class DashboardController extends Controller {
     public function listarUsuario() {
         $this->view->titulo = "Usuarios";
         $this->view->usuarios = $this->dashboards->listarUltimos();
+        $this->view->clientes = $this->clientes->listarUltimos();
+        $this->view->pagamentos = $this->pagamentos->listarUltimos();
+        
         $this->view->renderizar('st');
     }
 

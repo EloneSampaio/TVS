@@ -34,6 +34,14 @@ class clienteModel extends Model {
         return $this->db->Selecionar('SELECT  * FROM clientes WHERE telefone=:telefone ', array(':telefone' => $tel));
     }
 
+    public function verifcar_tel($tel) {
+
+        $tel = implode(",", $tel);
+        $em = $this->db->prepare("SELECT telefone FROM clientes WHERE telefone IN (" . $tel . ")");
+        $em->execute();
+        return $em->fetch();
+    }
+
     public function listar_id($id) {
         $em = $this->db->prepare("SELECT * FROM clientes WHERE id=:id");
 
@@ -67,11 +75,15 @@ class clienteModel extends Model {
         return $this->db->Selecionar('SELECT telefone FROM clientes');
     }
 
+    public function listarUltimos() {
+        return $this->db->Selecionar('SELECT * FROM  clientes ORDER BY  id DESC LIMIT 3');
+    }
+
     public function apagar_cliente($id) {
         $this->db->apagar('clientes', "id = '$id'");
     }
 
-    public function editar_cliente($data,$id) {
+    public function editar_cliente($data, $id) {
 
         $data = array(
             'nome' => $data['nome'],

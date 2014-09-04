@@ -28,7 +28,7 @@ class pdfController extends Controller {
         }
         $this->view->titulo = "imprimir contrato";
         $stylesheet = file_get_contents(ROOT . "views" . DS . "layout" . DS . DEFAULT_LAYOUT . DS . "bootstrap" . DS . "css" . DS . "bootstrap.min.css");
-        $html = $this->getRelatorio('contrato');
+        $html = $this->getRelatorio('contrato'); 
         $cl = $this->clientes->verificar_codigo($codigo);
         $this->pdf->allow_charset_conversion = true;
         $this->pdf->charset_in = 'UTF-8';
