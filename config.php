@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-define("URL", "http://localhost/Tvs/");
+define("URL", "http://localhost:8080/Tvs/");
 define("DEFAULT_LAYOUT", "default");
 define("APP_NAME", "Programao Angola");
 define("APP_DESCRICAO", "Trabalhando Para Melhorar O Conceito de Programação em Angola");
@@ -22,7 +22,7 @@ define('Valor_Inicio', 125436778);
 define('Valor_Final',88888888);
 define('SMS', "FOI EFECTUADO UM NOVO PAGAMENTO PELO Cliente:");
 define('SMSCLIENTE', "OBRIGADO POR TER FEITO O PAGAMENTO:");
-define('TELEFONE', 927769579);
+define('TELEFONE', 927303154);
 
 require APP_PATH . "Bootstrap.php";
 require APP_PATH . "Controller.php";

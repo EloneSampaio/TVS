@@ -26,8 +26,8 @@
                             <th>Nome</th> 
                             <th>Mes</th>
                             <th>Data</th>
-                            <th>Morada</th>
-                            <th>Contacto</th>
+                            <th>Codigo</th>
+                            <th>Factura</th>
                         </tr>
                     </thead>
 
@@ -39,8 +39,8 @@
                                     <td><?php print $valor['nome']; ?></td>
                                     <td><?php print $valor['mes']; ?></td>
                                     <td><?php print $valor['data']; ?></td>
-                                    <td><?php print $valor['morada']; ?></td>
-                                    <td><?php print $valor['telefone']; ?></td>
+                                    <td><?php print $valor['codigo']; ?></td>
+                                    <td><a rel="<?php print $valor['id_cliente']; ?>" href="<?php print URL . "pdf/factura/" . $valor['mes']."/".$valor['id_cliente'] ?>" id="contrato"><i class="">Imprimir</i></a></td>
 
                                 </tr>
                             <?php endforeach; ?>
@@ -48,7 +48,7 @@
                         </tbody>
                     </table>
                 <?php else: ?>
-                    <h2 class="text-center text-error">Não Foi efectuado nenhum pagamento</h2>
+                    <h2 class="text-center">Não Foi efectuado nenhum pagamento</h2>
                 <?php endif; ?>
 
 
@@ -59,6 +59,4 @@
     </div>
     <!-- /block -->
 </div>
-
-
 <hr>

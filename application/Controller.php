@@ -134,5 +134,30 @@ abstract class Controller {
         throw new Exception('Erro ao inserir Rodape');
     }
 
+
+
+    
+ public function getRelatorio($vista, $link = false) {
+        $rutaView = ROOT . "views" . DS . "pdf" . DS .$vista. ".php";
+
+        if ($link)
+            $link = URL . $link . '/';
+
+        if (is_readable($rutaView)) {
+            ob_start();
+
+            include $rutaView;
+
+            $contenido = ob_get_contents();
+
+            ob_end_clean();
+
+            return $contenido;
+        }
+
+        throw new Exception('Erro ao inserir Rodape');
+    }
+
+
     abstract public function index();
 }

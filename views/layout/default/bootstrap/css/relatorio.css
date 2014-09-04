@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : sam
 */
 
-#p1{
+#quadro{
     
 background-color: #ffffff;
 border: 2px solid #999999;
@@ -28,5 +28,6 @@ h4{ margin: 40px;}
 p{ margin: 50px; font-size: 14px; line-height: 1%;}
 
 #texto{
+     line-height: 25px;
     margin: 0px 0px 0px 10px;
 }

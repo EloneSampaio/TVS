@@ -28,7 +28,7 @@ class ClienteController extends Controller {
         if (!Session::get('autenticado')) {
             $this->redirecionar();
         }
-      
+
 
         $this->getBibliotecas('paginador');
         $paginador = new Paginador();
@@ -85,7 +85,11 @@ class ClienteController extends Controller {
 
                 $this->view->dados = FALSE;
                 $this->view->mensagem = "A sua conta foi criada com Sucesso";
-            }
+                $mensagem = "Novo Contrato Efectuado. Cliente:".$c['nome'] . "Data:"."Criado por:".Session::get('nome').date('Y-m-d H:i:s');
+                //Enviar a mensagem para cliente
+                Sms::SendSMS("127.0.0.1", 8800, "", "", TELEFONE, $mensagem);
+        }
+
             if (!$this->cliente->verifcar_cliente($this->getInt('telefone'))) {
                 $this->view->erro = "Não Possivel criar sua conta tenta mais tarde";
                 $this->view->renderizar("novo");
@@ -138,7 +142,7 @@ class ClienteController extends Controller {
             $data['telefone'] = $this->getInt('telefone');
             $data['morada'] = $this->getSqlverifica('morada');
             $data['nome'] = $this->getSqlverifica('nome');
-            $this->cliente->editar_cliente($data,$this->filtraInt($id));
+            $this->cliente->editar_cliente($data, $this->filtraInt($id));
             $this->view->dados = $this->view->mensagem = "Alterado com Sucesso";
         }
 
@@ -147,7 +151,7 @@ class ClienteController extends Controller {
     }
 
     public function apagar($id) {
-    
+
         Session::nivelRestrito(array("admin"));
         if (!$this->filtraInt($id)) {
             $this->redirecionar("cliente");

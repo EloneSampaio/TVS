@@ -88,9 +88,9 @@ class PagamentoController extends Controller {
 
             $mensagem = SMS . $c['nome'] . "Para o mes de " . $this->getSqlverifica('mes') . "Data:" . date('Y-m-d H:i:s');
             //Enviar a mensagem para administrador
-            //Sms::SendSMS("127.0.0.1", 8800, "", "", $c['telefone'], $mensagem,PADRAO);
+            Sms::SendSMS("127.0.0.1", 8800, "", "", $c['telefone'], $mensagem.PADRAO);
             //Enviar a mensagem para cliente
-            //Sms::SendSMS("127.0.0.1", 8800, "", "", TELEFONE, SMSCLIENTE);
+            Sms::SendSMS("127.0.0.1", 8800, "", "", TELEFONE, SMSCLIENTE);
             $this->view->dados = FALSE;
             $this->view->mensagem = "Pagamento Efectuado com Sucesso";
         }
